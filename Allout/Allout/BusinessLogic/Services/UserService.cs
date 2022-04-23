@@ -380,6 +380,31 @@ namespace Allout.BusinessLogic.Services
             return ConvertToAuctionBloList(auctionRtos);
         }
 
+        public async Task<List<AuctionBlo>> AllAuctionsWhichMemberUser(int userId, int count, int skipCount)
+        {
+            bool doesExsist = await _context.Users
+                .AnyAsync(x => x.Id == userId);
+
+            if (doesExsist == false)
+                throw new NotFoundException("Ой, у нас не нашлось такого пользователя");
+
+            List<int> auctionIdRtos = await _context.BuyLots
+                .Where(e => e.UserWhoBuyId == userId)
+                .Select(e => e.Id)
+                .ToListAsync();
+
+            List<AuctionRto> auctionRtos = new();
+            foreach (int i in auctionIdRtos)
+            {
+                auctionRtos.Add()
+            }
+
+            if (auctionRtos.Count == 0)
+                throw new NotFoundException("У пользователя нет аукционов");
+
+            return ConvertToAuctionBloList(auctionRtos);
+        }
+
         public async Task<BuyLotBlo> AddBuy(int userId, int auctionId)
         {
             UserRto? user = await _context.Users

@@ -1,0 +1,25 @@
+﻿<Properties StartupConfiguration="{DAB630F6-EDFD-4F92-8764-CC746DD23290}|Default">
+  <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Allout/BusinessLogic/Services/UserService.cs">
+    <Files>
+      <File FileName="Allout/BusinessLogic/Services/UserService.cs" Line="399" Column="34" />
+      <File FileName="Allout/BusinessLogic.Core/Interfaces/IUserService.cs" Line="32" Column="58" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="Allout" expanded="True" />
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.Allout PreferredExecutionTarget="/Applications/Firefox.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+</Properties>
