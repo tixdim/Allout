@@ -360,8 +360,56 @@ namespace Allout.BusinessLogic.Services
             return ConvertToAuctionBlo(auction);
         }
 
+        public async Task<List<AuctionBlo>> AllAuctionsWhichCreatUser(int userId, int count, int skipCount)
+        {
+            bool doesExsist = await _context.Users
+                .AnyAsync(x => x.Id == userId);
 
+            if (doesExsist == false)
+                throw new NotFoundException("Ой, у нас не нашлось такого пользователя");
 
+            List<AuctionRto> auctionRtos = await _context.Auctions
+                .Where(e => e.UserWhoUploadId == userId)
+                .Skip(skipCount)
+                .Take(count)
+                .ToListAsync();
+
+            if (auctionRtos.Count == 0)
+                throw new NotFoundException("У пользователя нет аукционов");
+
+            return ConvertToAuctionBloList(auctionRtos);
+        }
+
+        public async Task<BuyLotBlo> AddBuy(int userId, int auctionId)
+        {
+            UserRto? user = await _context.Users
+                .FirstOrDefaultAsync(x => x.Id == userId);
+
+            if (user == null)
+                throw new NotFoundException($"Пользователь с id {userId} не найден");
+
+            AuctionRto? auction = await _context.Auctions
+                .FirstOrDefaultAsync(x => x.Id == auctionId);
+
+            if (auction == null)
+                throw new NotFoundException($"Аукцион с id {auctionId} не найден");
+
+            return None;
+        }
+
+        private List<AuctionBlo> ConvertToAuctionBloList(List<AuctionRto> auctionRtos)
+        {
+            if (auctionRtos == null || auctionRtos.Count < 1)
+                throw new ArgumentNullException(nameof(auctionRtos));
+
+            List<AuctionBlo> auctionBlos = new();
+            for (int i = 0; i < auctionRtos.Count; i++)
+            {
+                auctionBlos.Add(_mapper.Map<AuctionBlo>(auctionRtos[i]));
+            }
+
+            return auctionBlos;
+        }
 
         private AuctionBlo ConvertToAuctionBlo(AuctionRto auctionRto)
         {
@@ -372,15 +420,15 @@ namespace Allout.BusinessLogic.Services
             return auctionBlo;
         }
 
-        private List<UserCommentBlo> ConvertToUserCommentBloList(List<UserCommentRto> userCommentRto)
+        private List<UserCommentBlo> ConvertToUserCommentBloList(List<UserCommentRto> userCommentRtos)
         {
-            if (userCommentRto == null || userCommentRto.Count < 1)
-                throw new ArgumentNullException(nameof(userCommentRto));
+            if (userCommentRtos == null || userCommentRtos.Count < 1)
+                throw new ArgumentNullException(nameof(userCommentRtos));
 
             List<UserCommentBlo> userCommentBlos = new();
-            for (int i = 0; i < userCommentRto.Count; i++)
+            for (int i = 0; i < userCommentRtos.Count; i++)
             {
-                userCommentBlos.Add(_mapper.Map<UserCommentBlo>(userCommentRto[i]));
+                userCommentBlos.Add(_mapper.Map<UserCommentBlo>(userCommentRtos[i]));
             }
 
             return userCommentBlos;
