@@ -9,6 +9,6 @@ namespace Allout.DataAccess.Core.Models
         public UserRto UserWhoSendStar { get; set; }
         public int UserWhoGetStarId { get; set; }
         public UserRto UserWhoGetStar { get; set; }
-        public int Count { get; set; }
+        public int CountStar { get; set; }
     }
 }

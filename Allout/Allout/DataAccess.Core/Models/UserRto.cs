@@ -7,11 +7,11 @@ namespace Allout.DataAccess.Core.Models
     public class UserRto
     {
         public int Id { get; set; }
-        public string Email { get; set; }
-        public string NickName { get; set; }
-        [Required, MinLength(6)] public string Password { get; set; }
+        public string? Email { get; set; }
+        public string Nickname { get; set; }
+        [Required, MinLength(6)] public string? Password { get; set; }
         public bool IsDeleted { get; set; }
-        public string AvatarUrl { get; set; }
+        public string? AvatarUrl { get; set; }
         public UserBalanceRto Balance { get; set; }
         public List<UserCommentRto> UserWhoSendComments { get; set; }
         public List<UserCommentRto> UserWhoGetComments { get; set; }
