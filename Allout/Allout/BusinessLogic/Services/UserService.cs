@@ -247,7 +247,9 @@ namespace Allout.BusinessLogic.Services
 
         public async Task<List<UserCommentBlo>> GetComments(int userId, int count, int skipCount)
         {
-            bool doesExsist = await _context.Users.AnyAsync(x => x.Id == userId);
+            bool doesExsist = await _context.Users
+                .AnyAsync(x => x.Id == userId);
+
             if (doesExsist == false)
                 throw new NotFoundException("Ой, у нас не нашлось такого пользователя");
 
@@ -265,7 +267,9 @@ namespace Allout.BusinessLogic.Services
         
         public async Task<int> GetCommentAmount(int userId)
         {
-            bool doesExsist = await _context.Users.AnyAsync(x => x.Id == userId);
+            bool doesExsist = await _context.Users
+                .AnyAsync(x => x.Id == userId);
+
             if (doesExsist == false)
                 throw new NotFoundException("Ой, у нас не нашлось такого пользователя");
 
@@ -276,6 +280,97 @@ namespace Allout.BusinessLogic.Services
         }
 
 
+        public async Task<AuctionBlo> AddAuction(int userId, AuctionCreateBlo auctionCreateBlo)
+        {
+            UserRto? user = await _context.Users
+                .FirstOrDefaultAsync(x => x.Id == userId);
+
+            if (user == null)
+                throw new NotFoundException($"Пользователь с id {userId} не найден");
+
+            var auctionRto = new AuctionRto
+            {
+                UserWhoUploadId = userId,
+                LotName = auctionCreateBlo.LotName,
+                ImageUrl = auctionCreateBlo.ImageUrl,
+                StartCost = auctionCreateBlo.StartCost,
+                NowCost = auctionCreateBlo.NowCost,
+                Location = auctionCreateBlo.Location,
+                IsDeleted = false,
+                Description = auctionCreateBlo.Description,
+                DateCreation = DateTime.Now,
+                Duration = auctionCreateBlo.Duration,
+                StatusId = 1
+            };
+
+            _context.Auctions.Add(auctionRto);
+            await _context.SaveChangesAsync();
+            return ConvertToAuctionBlo(auctionRto);
+        }
+        
+        public async Task<AuctionBlo> UpdateInfoAuction(int auctionId, int NowCost)
+        {
+            AuctionRto? auction = await _context.Auctions
+                .FirstOrDefaultAsync(x => x.Id == auctionId);
+
+            if (auction == null)
+                throw new NotFoundException($"Аукцион с id {auctionId} не найден");
+
+            auction.NowCost = NowCost;
+            await _context.SaveChangesAsync();
+
+            return ConvertToAuctionBlo(auction);
+        }
+
+        public async Task<AuctionBlo> UpdateStatusAuction(int auctionId, int auctionStatusModerationId)
+        {
+            AuctionRto? auction = await _context.Auctions
+                .FirstOrDefaultAsync(x => x.Id == auctionId);
+
+            if (auction == null)
+                throw new NotFoundException($"Аукцион с id {auctionId} не найден");
+
+            auction.StatusId = auctionStatusModerationId;
+            await _context.SaveChangesAsync();
+
+            return ConvertToAuctionBlo(auction);
+        }
+        
+        public async Task<AuctionBlo> GetAuction(int auctionId)
+        {
+            AuctionRto? auction = await _context.Auctions
+                .FirstOrDefaultAsync(x => x.Id == auctionId);
+
+            if (auction == null)
+                throw new NotFoundException($"Аукцион с id {auctionId} не найден");
+
+            return ConvertToAuctionBlo(auction);
+        }
+
+        public async Task<AuctionBlo> MarkAsDeletedAuction(int auctionId)
+        {
+            AuctionRto? auction = await _context.Auctions
+                .FirstOrDefaultAsync(x => x.Id == auctionId);
+
+            if (auction == null)
+                throw new NotFoundException($"Аукцион с id {auctionId} не найден");
+
+            auction.IsDeleted = true;
+            await _context.SaveChangesAsync();
+            return ConvertToAuctionBlo(auction);
+        }
+
+
+
+
+        private AuctionBlo ConvertToAuctionBlo(AuctionRto auctionRto)
+        {
+            if (auctionRto == null)
+                throw new ArgumentNullException(nameof(auctionRto));
+
+            AuctionBlo auctionBlo = _mapper.Map<AuctionBlo>(auctionRto);
+            return auctionBlo;
+        }
 
         private List<UserCommentBlo> ConvertToUserCommentBloList(List<UserCommentRto> userCommentRto)
         {

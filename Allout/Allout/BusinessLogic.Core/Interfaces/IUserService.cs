@@ -20,15 +20,18 @@ namespace Allout.BusinessLogic.Core.Interfaces
         Task<int> GetCountStars(int userId);
 
         Task<UserCommentBlo> AddUserComment(int userWhoSendCommentId, int userWhoGetCommentId, string text);
-        Task<List<UserCommentBlo>> GetComments(int userId, int count, int skipCount); // сделать
-        Task<int> GetCommentAmount(int userId); // сделать
+        Task<List<UserCommentBlo>> GetComments(int userId, int count, int skipCount);
+        Task<int> GetCommentAmount(int userId);
 
-        Task<AuctionBlo> AddAuction(int userId /*/ кто создаёт этот аукцион /*/, AuctionCreateBlo auctionCreateBlo); // сделать
-        Task<AuctionBlo> UpdateInfoAuction(int auctionId, int NowCost); // сделать
-        Task<AuctionBlo> UpdateStatusAuction(int auctionId, int auctionStatusModerationId); // сделать
-        Task<AuctionBlo> EndAuction(int auctionId); // сделать
-        Task<AuctionBlo> GetAuction(int auctionId); // сделать
-        Task<AuctionBlo> MarkAsDeletedAuction(int auctionId); // сделать
+        Task<AuctionBlo> AddAuction(int userId, AuctionCreateBlo auctionCreateBlo);
+        Task<AuctionBlo> UpdateInfoAuction(int auctionId, int NowCost);
+        Task<AuctionBlo> UpdateStatusAuction(int auctionId, int auctionStatusModerationId);
+        Task<AuctionBlo> GetAuction(int auctionId);
+        Task<AuctionBlo> MarkAsDeletedAuction(int auctionId);
+
+        //все аукционы, которые создал юзер
+        //все аукционы, в которых учавствовал юзер
+        //все доступные аукционы
 
         Task<BuyLotBlo> AddBuy(int userId, int auctionId); // сделать
         Task<int> GetLastBuyUserUd(int auctionId); // сделать

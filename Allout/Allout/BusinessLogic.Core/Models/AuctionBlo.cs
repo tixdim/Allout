@@ -8,6 +8,7 @@
         public string ImageUrl { get; set; }
         public int StartCost { get; set; }
         public int NowCost { get; set; }
+        public bool IsDeleted { get; set; }
         public string Location { get; set; }
         public string Description { get; set; }
         public DateTime DateCreation { get; set; }

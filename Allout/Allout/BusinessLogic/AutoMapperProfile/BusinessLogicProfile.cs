@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using Allout.DataAccess.Core.Models;
 using BusinessLogic.Core.Models;
+using Allout.BusinessLogic.Core.Models;
 
 namespace Allout.BusinessLogic.AutoMapperProfile
 {
@@ -17,6 +18,19 @@ namespace Allout.BusinessLogic.AutoMapperProfile
                 .ForMember(x => x.UserWhoSendCommentId, x => x.MapFrom(m => m.UserWhoSendCommentId))
                 .ForMember(x => x.UserWhoGetCommentId, x => x.MapFrom(m => m.UserWhoGetCommentId))
                 .ForMember(x => x.Text, x => x.MapFrom(m => m.Text));
+            CreateMap<AuctionRto, AuctionBlo>()
+                .ForMember(x => x.Id, x => x.MapFrom(m => m.Id))
+                .ForMember(x => x.UserWhoUploadId, x => x.MapFrom(m => m.UserWhoUploadId))
+                .ForMember(x => x.LotName, x => x.MapFrom(m => m.LotName))
+                .ForMember(x => x.ImageUrl, x => x.MapFrom(m => m.ImageUrl))
+                .ForMember(x => x.StartCost, x => x.MapFrom(m => m.StartCost))
+                .ForMember(x => x.NowCost, x => x.MapFrom(m => m.NowCost))
+                .ForMember(x => x.Location, x => x.MapFrom(m => m.Location))
+                .ForMember(x => x.Description, x => x.MapFrom(m => m.Description))
+                .ForMember(x => x.DateCreation, x => x.MapFrom(m => m.DateCreation))
+                .ForMember(x => x.Duration, x => x.MapFrom(m => m.Duration))
+                .ForMember(x => x.IsDeleted, x => x.MapFrom(m => m.IsDeleted))
+                .ForMember(x => x.StatusId, x => x.MapFrom(m => m.StatusId));
         }
     }
 }
