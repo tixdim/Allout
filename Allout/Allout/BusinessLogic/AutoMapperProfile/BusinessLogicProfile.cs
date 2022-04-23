@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
-using Allout.BusinessLogic.Core.Models;
+﻿using AutoMapper;
 using Allout.DataAccess.Core.Models;
 using BusinessLogic.Core.Models;
 
@@ -18,7 +13,10 @@ namespace Allout.BusinessLogic.AutoMapperProfile
                 .ForMember(x => x.Email, x => x.MapFrom(m => m.Email))
                 .ForMember(x => x.Nickname, x => x.MapFrom(m => m.Nickname))
                 .ForMember(x => x.AvatarUrl, x => x.MapFrom(m => m.AvatarUrl));
-
+            CreateMap<UserCommentRto, UserCommentBlo>()
+                .ForMember(x => x.UserWhoSendCommentId, x => x.MapFrom(m => m.UserWhoSendCommentId))
+                .ForMember(x => x.UserWhoGetCommentId, x => x.MapFrom(m => m.UserWhoGetCommentId))
+                .ForMember(x => x.Text, x => x.MapFrom(m => m.Text));
         }
     }
 }

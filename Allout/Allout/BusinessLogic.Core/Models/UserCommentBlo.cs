@@ -2,8 +2,8 @@
 {
     public class UserCommentBlo
     {
-        public int Id { get; set; }
-        public UserInformationBlo Author { get; set; }
+        public int UserWhoSendCommentId { get; set; }
+        public int UserWhoGetCommentId { get; set; }
         public string Text { get; set; }
     }
 }

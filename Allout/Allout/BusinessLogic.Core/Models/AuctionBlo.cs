@@ -3,7 +3,7 @@
     public class AuctionBlo
     {
         public int Id { get; set; }
-        // public int UserWhoUploadId { get; set; }  спросить надо ли так 
+        public int UserWhoUploadId { get; set; }
         public string LotName { get; set; }
         public string ImageUrl { get; set; }
         public int StartCost { get; set; }
@@ -12,6 +12,6 @@
         public string Description { get; set; }
         public DateTime DateCreation { get; set; }
         public DateTime Duration { get; set; }
-        // public int StatusId { get; set; } хз
+        public int StatusId { get; set; }
     }
 }

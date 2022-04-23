@@ -17,9 +17,9 @@ namespace Allout.BusinessLogic.Core.Interfaces
         Task<int> UpdateUserBalance(int userId, int changeMoney);
 
         Task AddUserStar(int userWhoSendStarId, int userWhoGetStarId, int count);
-        Task<int> GetCountStars(int userId); // сделать
+        Task<int> GetCountStars(int userId);
 
-        Task<UserCommentBlo> AddUserComment(int userWhoSendCommentId, int userWhoGetCommentId, string text); // сделать
+        Task<UserCommentBlo> AddUserComment(int userWhoSendCommentId, int userWhoGetCommentId, string text);
         Task<List<UserCommentBlo>> GetComments(int userId, int count, int skipCount); // сделать
         Task<int> GetCommentAmount(int userId); // сделать
 

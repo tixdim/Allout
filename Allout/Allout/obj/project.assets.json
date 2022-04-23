@@ -2407,26 +2407,24 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Admin\\.nuget\\packages\\": {}
+    "/Users/titikuniverse/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Documents\\GitHub\\Allout\\Allout\\Allout\\Allout.csproj",
+      "projectUniqueName": "/Users/titikuniverse/Documents/GitHub/PotokBackend/Allout/Allout/Allout/Allout.csproj",
       "projectName": "Allout",
-      "projectPath": "D:\\Documents\\GitHub\\Allout\\Allout\\Allout\\Allout.csproj",
-      "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "D:\\Documents\\GitHub\\Allout\\Allout\\Allout\\obj\\",
+      "projectPath": "/Users/titikuniverse/Documents/GitHub/PotokBackend/Allout/Allout/Allout/Allout.csproj",
+      "packagesPath": "/Users/titikuniverse/.nuget/packages/",
+      "outputPath": "/Users/titikuniverse/Documents/GitHub/PotokBackend/Allout/Allout/Allout/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/titikuniverse/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -2524,7 +2522,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
       }
     }
   }

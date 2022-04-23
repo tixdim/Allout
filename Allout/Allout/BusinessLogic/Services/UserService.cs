@@ -204,20 +204,100 @@ namespace Allout.BusinessLogic.Services
             if (user == null)
                 throw new NotFoundException($"Пользователь с id {userId} не найден");
 
-            List<UserStarRto> starBlos = await _context.UserStars
-                .Include(e => e.CountStar)
+            List<int> starBlos = await _context.UserStars
                 .Where(e => e.UserWhoGetStarId == userId)
+                .Select(e => e.CountStar)
                 .ToListAsync();
 
-            List<int> AllStar = new();
-            for (int i = 0; i < starBlos.Count; i++)
+            return starBlos.Sum() / starBlos.Count;
+        }
+
+        
+        public async Task<UserCommentBlo> AddUserComment(int userWhoSendCommentId, int userWhoGetCommentId, string text)
+        {
+            var sendingUserRto = await _context.Users
+                .AsNoTracking()
+                .Include(e => e.UserWhoSendComments)
+                .Include(e => e.UserWhoGetComments)
+                .FirstOrDefaultAsync(e => e.Id == userWhoSendCommentId);
+
+            if (sendingUserRto == null)
+                throw new ConflictException("Не удалось найти вас в нашей базе данных");
+
+            if (!await _context.Users.AsNoTracking().AnyAsync(e => e.Id == userWhoGetCommentId))
+                throw new NotFoundException("Вы хотели добавить комментарий несуществующему пользователю");
+
+            var existingCommentRto = await _context.UserComments
+                .FirstOrDefaultAsync(e => e.UserWhoSendCommentId == userWhoSendCommentId && e.UserWhoGetCommentId == userWhoGetCommentId);
+
+            if (existingCommentRto != null)
+                throw new ConflictException("Вы уже оставляли комментарий этому пользователя");
+
+            var commentRto = new UserCommentRto
             {
-                AllStar.Add(starBlos);
+                UserWhoSendCommentId = userWhoSendCommentId,
+                UserWhoGetCommentId = userWhoGetCommentId,
+                Text = text
+            };
+
+            _context.UserComments.Add(commentRto);
+            await _context.SaveChangesAsync();
+            return ConvertToUserCommentBlo(commentRto);
+        }
+
+        public async Task<List<UserCommentBlo>> GetComments(int userId, int count, int skipCount)
+        {
+            bool doesExsist = await _context.Users.AnyAsync(x => x.Id == userId);
+            if (doesExsist == false)
+                throw new NotFoundException("Ой, у нас не нашлось такого пользователя");
+
+            List<UserCommentRto> userCommentRtos = await _context.UserComments
+                .Where(e => e.UserWhoGetCommentId == userId)
+                .Skip(skipCount)
+                .Take(count)
+                .ToListAsync();
+
+            if (userCommentRtos.Count == 0)
+                throw new NotFoundException("У пользователя нет комментариев");
+
+            return ConvertToUserCommentBloList(userCommentRtos);
+        }
+        
+        public async Task<int> GetCommentAmount(int userId)
+        {
+            bool doesExsist = await _context.Users.AnyAsync(x => x.Id == userId);
+            if (doesExsist == false)
+                throw new NotFoundException("Ой, у нас не нашлось такого пользователя");
+
+            int userCommentCount = await _context.UserComments
+                .CountAsync(e => e.UserWhoGetCommentId == userId);
+
+            return userCommentCount;
+        }
+
+
+
+        private List<UserCommentBlo> ConvertToUserCommentBloList(List<UserCommentRto> userCommentRto)
+        {
+            if (userCommentRto == null || userCommentRto.Count < 1)
+                throw new ArgumentNullException(nameof(userCommentRto));
+
+            List<UserCommentBlo> userCommentBlos = new();
+            for (int i = 0; i < userCommentRto.Count; i++)
+            {
+                userCommentBlos.Add(_mapper.Map<UserCommentBlo>(userCommentRto[i]));
             }
 
-            return medalCategoryInformationBlos;
+            return userCommentBlos;
+        }
 
-            return 1;
+        private UserCommentBlo ConvertToUserCommentBlo(UserCommentRto commentRto)
+        {
+            if (commentRto == null)
+                throw new ArgumentNullException(nameof(commentRto));
+
+            UserCommentBlo userCommentBlo = _mapper.Map<UserCommentBlo>(commentRto);
+            return userCommentBlo;
         }
 
         private UserInformationBlo ConvertToUserInformation(UserRto userRto)
