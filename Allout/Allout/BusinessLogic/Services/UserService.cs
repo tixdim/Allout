@@ -77,6 +77,7 @@ namespace Allout.BusinessLogic.Services
                 user.Email = userUpdateBlo.Email == null ? user.Email : userUpdateBlo.Email;
                 user.Nickname = userUpdateBlo.Nickname == null ? user.Nickname : userUpdateBlo.Nickname;
                 user.Password = userUpdateBlo.NewPassword == null ? user.Password : userUpdateBlo.NewPassword;
+                user.AvatarUrl = userUpdateBlo.AvatarUrl == null ? user.AvatarUrl : userUpdateBlo.AvatarUrl;
 
                 await _context.SaveChangesAsync();
             }
