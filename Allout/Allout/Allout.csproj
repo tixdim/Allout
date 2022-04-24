@@ -7,6 +7,103 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Include="obj\Debug\net6.0\.NETCoreApp,Version=v6.0.AssemblyAttributes.cs" />
+    <Compile Include="obj\Debug\net6.0\Allout.AssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net6.0\Allout.GlobalUsings.g.cs" />
+    <Compile Include="obj\Debug\net6.0\Allout.MvcApplicationPartsAssemblyInfo.cs" />
+    <Compile Include="obj\Debug\net6.0\Allout.RazorAssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="bin\Debug\net6.0\Allout.deps.json" />
+    <Content Include="bin\Debug\net6.0\Allout.runtimeconfig.json" />
+    <Content Include="bin\Debug\net6.0\appsettings.Development.json" />
+    <Content Include="bin\Debug\net6.0\appsettings.json" />
+    <Content Include="obj\Allout.csproj.nuget.dgspec.json" />
+    <Content Include="obj\Debug\net6.0\Allout.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\net6.0\staticwebassets.build.json" />
+    <Content Include="obj\project.assets.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="bin\Debug\net6.0\Allout.dll" />
+    <None Include="bin\Debug\net6.0\Allout.exe" />
+    <None Include="bin\Debug\net6.0\Allout.pdb" />
+    <None Include="bin\Debug\net6.0\AutoMapper.dll" />
+    <None Include="bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll" />
+    <None Include="bin\Debug\net6.0\AWSSDK.Core.dll" />
+    <None Include="bin\Debug\net6.0\AWSSDK.Extensions.NETCore.Setup.dll" />
+    <None Include="bin\Debug\net6.0\AWSSDK.S3.dll" />
+    <None Include="bin\Debug\net6.0\Humanizer.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.AspNetCore.JsonPatch.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.AspNetCore.Mvc.NewtonsoftJson.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Data.Sqlite.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Sqlite.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Extensions.DependencyModel.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.OpenApi.dll" />
+    <None Include="bin\Debug\net6.0\Microsoft.Win32.SystemEvents.dll" />
+    <None Include="bin\Debug\net6.0\Newtonsoft.Json.Bson.dll" />
+    <None Include="bin\Debug\net6.0\Newtonsoft.Json.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\alpine-x64\native\libe_sqlite3.so" />
+    <None Include="bin\Debug\net6.0\runtimes\linux-arm64\native\libe_sqlite3.so" />
+    <None Include="bin\Debug\net6.0\runtimes\linux-armel\native\libe_sqlite3.so" />
+    <None Include="bin\Debug\net6.0\runtimes\linux-arm\native\libe_sqlite3.so" />
+    <None Include="bin\Debug\net6.0\runtimes\linux-mips64\native\libe_sqlite3.so" />
+    <None Include="bin\Debug\net6.0\runtimes\linux-musl-x64\native\libe_sqlite3.so" />
+    <None Include="bin\Debug\net6.0\runtimes\linux-s390x\native\libe_sqlite3.so" />
+    <None Include="bin\Debug\net6.0\runtimes\linux-x64\native\libe_sqlite3.so" />
+    <None Include="bin\Debug\net6.0\runtimes\linux-x86\native\libe_sqlite3.so" />
+    <None Include="bin\Debug\net6.0\runtimes\osx-arm64\native\libe_sqlite3.dylib" />
+    <None Include="bin\Debug\net6.0\runtimes\osx-x64\native\libe_sqlite3.dylib" />
+    <None Include="bin\Debug\net6.0\runtimes\unix\lib\net6.0\System.Drawing.Common.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-arm64\native\e_sqlite3.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-arm\native\e_sqlite3.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-x64\native\e_sqlite3.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win-x86\native\e_sqlite3.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\net6.0\Microsoft.Win32.SystemEvents.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Drawing.Common.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll" />
+    <None Include="bin\Debug\net6.0\SQLitePCLRaw.batteries_v2.dll" />
+    <None Include="bin\Debug\net6.0\SQLitePCLRaw.core.dll" />
+    <None Include="bin\Debug\net6.0\SQLitePCLRaw.provider.e_sqlite3.dll" />
+    <None Include="bin\Debug\net6.0\Swashbuckle.AspNetCore.Swagger.dll" />
+    <None Include="bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerGen.dll" />
+    <None Include="bin\Debug\net6.0\Swashbuckle.AspNetCore.SwaggerUI.dll" />
+    <None Include="bin\Debug\net6.0\System.Configuration.ConfigurationManager.dll" />
+    <None Include="bin\Debug\net6.0\System.Drawing.Common.dll" />
+    <None Include="bin\Debug\net6.0\System.Security.Cryptography.ProtectedData.dll" />
+    <None Include="bin\Debug\net6.0\System.Security.Permissions.dll" />
+    <None Include="bin\Debug\net6.0\System.Windows.Extensions.dll" />
+    <None Include="bin\Debug\net6.0\Z.EntityFramework.Extensions.EFCore.dll" />
+    <None Include="obj\Allout.csproj.EntityFrameworkCore.targets" />
+    <None Include="obj\Allout.csproj.nuget.g.props" />
+    <None Include="obj\Allout.csproj.nuget.g.targets" />
+    <None Include="obj\Debug\net6.0\Allout.AssemblyInfoInputs.cache" />
+    <None Include="obj\Debug\net6.0\Allout.assets.cache" />
+    <None Include="obj\Debug\net6.0\Allout.csproj.AssemblyReference.cache" />
+    <None Include="obj\Debug\net6.0\Allout.csproj.CopyComplete" />
+    <None Include="obj\Debug\net6.0\Allout.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\net6.0\Allout.dll" />
+    <None Include="obj\Debug\net6.0\Allout.GeneratedMSBuildEditorConfig.editorconfig" />
+    <None Include="obj\Debug\net6.0\Allout.genruntimeconfig.cache" />
+    <None Include="obj\Debug\net6.0\Allout.MvcApplicationPartsAssemblyInfo.cache" />
+    <None Include="obj\Debug\net6.0\Allout.pdb" />
+    <None Include="obj\Debug\net6.0\Allout.RazorAssemblyInfo.cache" />
+    <None Include="obj\Debug\net6.0\apphost" />
+    <None Include="obj\Debug\net6.0\apphost.exe" />
+    <None Include="obj\Debug\net6.0\refint\Allout.dll" />
+    <None Include="obj\Debug\net6.0\ref\Allout.dll" />
+    <None Include="obj\project.nuget.cache" />
+    <None Include="obj\staticwebassets.pack.sentinel" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="AWSSDK.Extensions.NETCore.Setup" Version="3.7.2" />
@@ -27,6 +124,10 @@
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="6.0.0" />
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.1" />
     <PackageReference Include="Z.EntityFramework.Extensions.EFCore" Version="6.13.17" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="obj\Debug\net6.0\staticwebassets\" />
   </ItemGroup>
 
 </Project>

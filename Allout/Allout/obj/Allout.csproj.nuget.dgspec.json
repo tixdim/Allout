@@ -1,25 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/titikuniverse/Documents/GitHub/PotokBackend/Allout/Allout/Allout/Allout.csproj": {}
+    "D:\\Documents\\GitHub\\Allout\\Allout\\Allout\\Allout.csproj": {}
   },
   "projects": {
-    "/Users/titikuniverse/Documents/GitHub/PotokBackend/Allout/Allout/Allout/Allout.csproj": {
+    "D:\\Documents\\GitHub\\Allout\\Allout\\Allout\\Allout.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/titikuniverse/Documents/GitHub/PotokBackend/Allout/Allout/Allout/Allout.csproj",
+        "projectUniqueName": "D:\\Documents\\GitHub\\Allout\\Allout\\Allout\\Allout.csproj",
         "projectName": "Allout",
-        "projectPath": "/Users/titikuniverse/Documents/GitHub/PotokBackend/Allout/Allout/Allout/Allout.csproj",
-        "packagesPath": "/Users/titikuniverse/.nuget/packages/",
-        "outputPath": "/Users/titikuniverse/Documents/GitHub/PotokBackend/Allout/Allout/Allout/obj/",
+        "projectPath": "D:\\Documents\\GitHub\\Allout\\Allout\\Allout\\Allout.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Documents\\GitHub\\Allout\\Allout\\Allout\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/titikuniverse/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -117,7 +119,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.202/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
         }
       }
     }

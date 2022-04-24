@@ -28,11 +28,11 @@ namespace Allout.Migrations
                 {
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    Email = table.Column<string>(type: "TEXT", nullable: false),
-                    NickName = table.Column<string>(type: "TEXT", nullable: false),
+                    Email = table.Column<string>(type: "TEXT", nullable: true),
+                    Nickname = table.Column<string>(type: "TEXT", nullable: true),
                     Password = table.Column<string>(type: "TEXT", nullable: false),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false),
-                    AvatarUrl = table.Column<string>(type: "TEXT", nullable: false)
+                    AvatarUrl = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -48,8 +48,8 @@ namespace Allout.Migrations
                     UserWhoUploadId = table.Column<int>(type: "INTEGER", nullable: false),
                     LotName = table.Column<string>(type: "TEXT", nullable: false),
                     ImageUrl = table.Column<string>(type: "TEXT", nullable: false),
-                    StartCost = table.Column<int>(type: "INTEGER", nullable: false),
-                    NowCost = table.Column<int>(type: "INTEGER", nullable: false),
+                    StartCost = table.Column<float>(type: "REAL", nullable: false),
+                    NowCost = table.Column<float>(type: "REAL", nullable: false),
                     Location = table.Column<string>(type: "TEXT", nullable: false),
                     IsDeleted = table.Column<bool>(type: "INTEGER", nullable: false),
                     Description = table.Column<string>(type: "TEXT", nullable: false),
@@ -81,7 +81,7 @@ namespace Allout.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     UserId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Balance = table.Column<int>(type: "INTEGER", nullable: false)
+                    Balance = table.Column<float>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -123,7 +123,7 @@ namespace Allout.Migrations
                 {
                     UserWhoSendStarId = table.Column<int>(type: "INTEGER", nullable: false),
                     UserWhoGetStarId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Count = table.Column<int>(type: "INTEGER", nullable: false)
+                    CountStar = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -148,7 +148,8 @@ namespace Allout.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     AuctionId = table.Column<int>(type: "INTEGER", nullable: false),
                     UserWhoBuyId = table.Column<int>(type: "INTEGER", nullable: false),
-                    PurchaseDate = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    PurchaseDate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Money = table.Column<float>(type: "REAL", nullable: false)
                 },
                 constraints: table =>
                 {

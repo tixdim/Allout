@@ -8,7 +8,7 @@ namespace Allout.DataAccess.Core.Models
     {
         public int Id { get; set; }
         public string? Email { get; set; }
-        public string Nickname { get; set; }
+        public string? Nickname { get; set; }
         [Required, MinLength(6)] public string? Password { get; set; }
         public bool IsDeleted { get; set; }
         public string? AvatarUrl { get; set; }

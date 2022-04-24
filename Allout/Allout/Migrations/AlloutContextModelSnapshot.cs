@@ -48,11 +48,11 @@ namespace Allout.Migrations
                         .IsRequired()
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("NowCost")
-                        .HasColumnType("INTEGER");
+                    b.Property<float>("NowCost")
+                        .HasColumnType("REAL");
 
-                    b.Property<int>("StartCost")
-                        .HasColumnType("INTEGER");
+                    b.Property<float>("StartCost")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("StatusId")
                         .HasColumnType("INTEGER");
@@ -93,6 +93,9 @@ namespace Allout.Migrations
                     b.Property<int>("AuctionId")
                         .HasColumnType("INTEGER");
 
+                    b.Property<float>("Money")
+                        .HasColumnType("REAL");
+
                     b.Property<DateTime>("PurchaseDate")
                         .HasColumnType("TEXT");
 
@@ -114,8 +117,8 @@ namespace Allout.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Balance")
-                        .HasColumnType("INTEGER");
+                    b.Property<float>("Balance")
+                        .HasColumnType("REAL");
 
                     b.Property<int>("UserId")
                         .HasColumnType("INTEGER");
@@ -156,18 +159,15 @@ namespace Allout.Migrations
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("AvatarUrl")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("TEXT");
 
                     b.Property<bool>("IsDeleted")
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("NickName")
-                        .IsRequired()
+                    b.Property<string>("Nickname")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Password")
@@ -187,7 +187,7 @@ namespace Allout.Migrations
                     b.Property<int>("UserWhoGetStarId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("Count")
+                    b.Property<int>("CountStar")
                         .HasColumnType("INTEGER");
 
                     b.HasKey("UserWhoSendStarId", "UserWhoGetStarId");

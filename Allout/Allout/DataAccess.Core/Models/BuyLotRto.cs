@@ -11,5 +11,6 @@ namespace Allout.DataAccess.Core.Models
         public int UserWhoBuyId { get; set; }
         public UserRto UserWhoBuy { get; set; }
         public DateTime PurchaseDate { get; set; }
+        public float Money { get; set; }
     }
 }
